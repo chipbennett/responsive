@@ -43,8 +43,10 @@ if ( !defined('ABSPATH')) exit;
 <?php responsive_container(); // before container hook ?>
 <div id="container" class="hfeed">
          
-    <?php responsive_header(); // before header hook ?>
+    <?php responsive_header(); // before header container hook ?>
     <div id="header">
+
+		<?php responsive_header_top(); // before header content hook ?>
     
         <?php if (has_nav_menu('top-menu', 'responsive')) { ?>
 	        <?php wp_nav_menu(array(
@@ -91,10 +93,13 @@ if ( !defined('ABSPATH')) exit;
 					); 
 				?>
             <?php } ?>
+
+			<?php responsive_header_bottom(); // after header content hook ?>
  
     </div><!-- end of #header -->
-    <?php responsive_header_end(); // after header hook ?>
+    <?php responsive_header_end(); // after header container hook ?>
     
-	<?php responsive_wrapper(); // before wrapper ?>
+	<?php responsive_wrapper(); // before wrapper container hook ?>
     <div id="wrapper" class="clearfix">
-    <?php responsive_in_wrapper(); // wrapper hook ?>
+		<?php responsive_wrapper_top(); // before wrapper content hook ?>
+		<?php responsive_in_wrapper(); // wrapper hook ?>

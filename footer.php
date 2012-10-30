@@ -18,12 +18,14 @@ if ( !defined('ABSPATH')) exit;
  * @since          available since Release 1.0
  */
 ?>
+		<?php responsive_wrapper_bottom(); // after wrapper content hook ?>
     </div><!-- end of #wrapper -->
-    <?php responsive_wrapper_end(); // after wrapper hook ?>
+    <?php responsive_wrapper_end(); // after wrapper container hook ?>
 </div><!-- end of #container -->
 <?php responsive_container_end(); // after container hook ?>
 
 <div id="footer" class="clearfix">
+	<?php responsive_footer_top(); ?>
 
     <div id="footer-wrapper">
     
@@ -120,7 +122,9 @@ if ( !defined('ABSPATH')) exit;
         
     </div><!-- end #footer-wrapper -->
     
+	<?php responsive_footer_bottom(); ?>
 </div><!-- end #footer -->
+<?php responsive_footer_after(); ?>
 
 <?php wp_footer(); ?>
 </body>

@@ -32,7 +32,9 @@ if ( !defined('ABSPATH')) exit;
 		<?php echo responsive_breadcrumb_lists(); ?>
         <?php endif; ?>
         
+			<?php responsive_entry_before(); ?>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php responsive_entry_top(); ?>
                 <h1 class="post-title"><?php the_title(); ?></h1> 
                 
                 <div class="post-entry">
@@ -63,8 +65,10 @@ if ( !defined('ABSPATH')) exit;
                 <?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:', 'responsive'), 'after' => '</div>')); ?>     
                 </div><!-- end of .post-entry -->             
             
-            <div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div>  
+				<div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div>  
+				<?php responsive_entry_bottom(); ?>
             </div><!-- end of #post-<?php the_ID(); ?> -->
+			<?php responsive_entry_after(); ?>
             
         <?php endwhile; ?> 
         

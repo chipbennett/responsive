@@ -30,8 +30,10 @@ if ( !defined('ABSPATH')) exit;
 		<?php if ($options['breadcrumb'] == 0): ?>
 		<?php echo responsive_breadcrumb_lists(); ?>
         <?php endif; ?> 
-          
+
+			<?php responsive_entry_before(); ?>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php responsive_entry_top(); ?>
                 <h1 class="post-title"><?php the_title(); ?></h1>
 
                 <div class="post-meta">
@@ -69,12 +71,16 @@ if ( !defined('ABSPATH')) exit;
                 <div class="post-data">
 				    <?php the_tags(__('Tagged with:', 'responsive') . ' ', ', ', '<br />'); ?> 
 					<?php printf(__('Posted in %s', 'responsive'), get_the_category_list(', ')); ?> 
-                </div><!-- end of .post-data -->             
+                </div><!-- end of .post-data --> 
 
-            <div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div>             
+				<div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div>     
+				<?php responsive_entry_bottom(); ?>
             </div><!-- end of #post-<?php the_ID(); ?> -->
+			<?php responsive_entry_after(); ?>
             
+			<?php responsive_comments_before(); ?>
 			<?php comments_template( '', true ); ?>
+			<?php responsive_comments_after(); ?>
             
         <?php endwhile; ?> 
 

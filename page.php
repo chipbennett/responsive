@@ -31,7 +31,9 @@ if ( !defined('ABSPATH')) exit;
 		<?php echo responsive_breadcrumb_lists(); ?>
         <?php endif; ?>
         
+			<?php responsive_entry_before(); ?>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php responsive_entry_top(); ?>
                 <h1 class="post-title"><?php the_title(); ?></h1>
  
                 <?php if ( comments_open() ) : ?>               
@@ -59,10 +61,14 @@ if ( !defined('ABSPATH')) exit;
                 </div><!-- end of .post-data -->
                 <?php endif; ?>             
             
-            <div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div> 
+				<div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div> 
+				<?php responsive_entry_after(); ?>
             </div><!-- end of #post-<?php the_ID(); ?> -->
+			<?php responsive_entry_bottom(); ?>
             
+			<?php responsive_comments_before(); ?>
             <?php comments_template( '', true ); ?>
+			<?php responsive_comments_after(); ?>
             
         <?php endwhile; ?> 
         

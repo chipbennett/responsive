@@ -27,7 +27,9 @@ if ( !defined('ABSPATH')) exit;
 
 		<?php while (have_posts()) : the_post(); ?>
         
+			<?php responsive_entry_before(); ?>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php responsive_entry_top(); ?>
                 <h1 class="post-title"><?php the_title(); ?></h1> 
                 
                 <div class="post-entry">
@@ -42,8 +44,10 @@ if ( !defined('ABSPATH')) exit;
                 </div><!-- end of .post-data -->
                 <?php endif; ?>             
             
-            <div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div> 
+				<div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div> 
+				<?php responsive_entry_bottom(); ?>
             </div><!-- end of #post-<?php the_ID(); ?> -->
+			<?php responsive_entry_after(); ?>
                         
         <?php endwhile; ?> 
         

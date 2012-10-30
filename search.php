@@ -28,7 +28,9 @@ if ( !defined('ABSPATH')) exit;
 
 		<?php while (have_posts()) : the_post(); ?>
         
+			<?php responsive_entry_before(); ?>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php responsive_entry_top(); ?>
                 
                 <h1 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s', 'responsive'), the_title_attribute('echo=0')); ?>"><?php the_title(); ?></a></h1>
                 
@@ -49,8 +51,10 @@ if ( !defined('ABSPATH')) exit;
                 </div><!-- end of .post-entry -->
                            
 
-            <div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div>               
+				<div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div> 
+				<?php responsive_entry_bottom(); ?>
             </div><!-- end of #post-<?php the_ID(); ?> -->
+			<?php responsive_entry_after(); ?>
             
         <?php endwhile; ?> 
         

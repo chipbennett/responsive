@@ -18,6 +18,7 @@ if ( !defined('ABSPATH')) exit;
  * @since          available since Release 1.0
  */
 ?>
+		<?php responsive_widgets_before(); // above widgets container hook ?>
         <div id="widgets" class="grid col-300 fit gallery-meta">
         <?php responsive_widgets(); // above widgets hook ?>
             <div class="widget-wrapper">
@@ -66,6 +67,7 @@ if ( !defined('ABSPATH')) exit;
 
             </div><!-- end of .widget-wrapper -->
         </div><!-- end of #widgets -->
+		<?php responsive_widgets_after(); // after widgets container hook ?>
 
             <?php if (!is_active_sidebar('gallery-widget')) return; ?>
 
@@ -80,5 +82,6 @@ if ( !defined('ABSPATH')) exit;
         <?php responsive_widgets_end(); // after widgets hook ?>
             
         </div><!-- end of #widgets -->
+		<?php responsive_widgets_after(); // after widgets container hook ?>
         
         <?php endif; ?>
